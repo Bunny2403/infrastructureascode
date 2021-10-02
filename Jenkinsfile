@@ -25,13 +25,14 @@ pipeline{
         stage("Dry Run"){
 
             steps{
-                sh "terraform plan"
+
+                sh "terraform plan -out=create.tfplan"
             }
         }
 
         stage("applying"){
             steps{
-                sh "terraform apply"
+                sh "terraform apply create.tfplan"
             }
         }
     }
