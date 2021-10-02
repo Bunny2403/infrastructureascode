@@ -15,5 +15,24 @@ pipeline{
 
             
         }
+        stage("initializing terraform"){
+
+            steps{
+                sh "terraform -init"
+            }
+        }
+
+        stage("Dry Run"){
+
+            steps{
+                sh "terraform -plan"
+            }
+        }
+
+        stage("applying"){
+            steps{
+                sh "terraform -apply"
+            }
+        }
     }
 }
