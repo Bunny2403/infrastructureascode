@@ -26,13 +26,13 @@ pipeline{
 
             steps{
 
-                sh "terraform plan -out=create.tfplan"
+                sh "terraform plan -out=creator.tfplan"
             }
         }
 
         stage("applying"){
             steps{
-                sh "terraform apply create.tfplan"
+                sh "terraform apply creator.tfplan"
             }
         }
     }
